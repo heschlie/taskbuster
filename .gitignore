@@ -1,0 +1,6 @@
+# Our super secret file
+taskbuster/settings/secrets.py
+
+# Other junk
+__pycache__
+db.sqlite3
