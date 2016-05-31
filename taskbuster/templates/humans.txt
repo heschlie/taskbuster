@@ -3,13 +3,16 @@
 
 # TEAM
 
-    <name> -- <role> -- <twitter>
+    Stephen Schlie -- Lead Developer -- @heschlie
 
 # THANKS
 
-    <name>
+    /r/programming, /r/python, /r/django for all the advice and support.  As well
+    as Marinamele for her awesome Django tutorial
 
 # TECHNOLOGY COLOPHON
 
     HTML5, CSS3
     jQuery, Modernizr
+    Twitter bootstrap
+    Django

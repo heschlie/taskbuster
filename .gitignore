@@ -4,3 +4,7 @@ taskbuster/settings/secrets.py
 # Other junk
 __pycache__
 db.sqlite3
+
+# Coverage stuff
+.coverage
+htmlconv
