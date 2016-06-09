@@ -4,6 +4,7 @@ taskbuster/settings/secrets.py
 # Other junk
 __pycache__
 db.sqlite3
+taskbuster/fixtures
 
 # Coverage stuff
 .coverage

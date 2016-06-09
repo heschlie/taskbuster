@@ -14,8 +14,6 @@ class HomeNewVisitorTest(StaticLiveServerTestCase):
         activate('en')
 
     def tearDown(self):
-        # Bug in selenium need to call refresh to not get error 10054
-        self.browser.refresh()
         self.browser.quit()
 
     def get_full_url(self, namespace):

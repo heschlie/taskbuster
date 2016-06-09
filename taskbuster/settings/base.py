@@ -14,6 +14,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 import os
 from django.utils.translation import ugettext_lazy as lazy
 
+# Create this file and keep it out of source control!
 import taskbuster.settings.secrets as secrets
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -40,6 +41,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'taskbuster.apps.taskmanager',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -68,6 +70,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.i18n',
+                'django.core.context_processors.request',
             ],
         },
     },
@@ -81,8 +84,12 @@ WSGI_APPLICATION = 'taskbuster.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': secrets.DB_NAME,
+        'USER': secrets.DB_USER,
+        'PASSWORD': secrets.DB_PASS,
+        'HOST': '',
+        'PORT': '',
     }
 }
 
@@ -118,3 +125,18 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+INSTALLED_APPS += (
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+)
+
+SITE_ID = 3
+
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+SOCIALACCOUNT_QUERY_EMAIL = True
+LOGIN_REDIRECT_URL = '/'
